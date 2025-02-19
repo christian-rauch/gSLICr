@@ -1,5 +1,10 @@
-cmake_minimum_required(VERSION 3.10)
-project(gSLICr LANGUAGES CXX CUDA)
+cmake_minimum_required(VERSION 3.17)
+project(gSLICr LANGUAGES CXX)
+
+find_package(CUDAToolkit REQUIRED)
+
+set(CMAKE_CUDA_COMPILER ${CUDAToolkit_NVCC_EXECUTABLE})
+enable_language(CUDA)
 
 IF(MSVC_IDE)
   set(OpenCV_STATIC OFF)
